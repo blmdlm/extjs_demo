@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>demo</title>
+
+
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+
+	<script type="text/javascript" src="../extjs/bootstrap.js" charset='utf-8' ></script>
+	<script type="text/javascript" charset='utf-8' >
+
+	Ext.require([
+		'Ext.grid.*',
+		'Ext.data.*'
+		]);
+			
+
+	Ext.onReady(function(){
+		Ext.define('MyData',{
+			extend:'Ext.data.Model',
+			fields:[
+				{name:'UserName',mapping:'UserName'},
+				{name:'Sex',mapping:'Sex'},
+				{name:'Age',mapping:'Age'}
+			],
+		});
+
+//创建数据源
+	var store=Ext.create('Ext.data.Store',{
+		model:'MyData',
+		proxy:{
+			//异步获取数据
+			type:'ajax',
+			url:'http://www.demo.com/demo/mydata.json',
+
+			reader:{
+				type:'json',
+				root:'mydatas'
+			}
+		},
+		// autoLoad:true
+		
+	});
+
+	store.load({
+		callback:function(){
+		}
+		});
+
+	console.log(store.getCount());
+
+	console.log(store);
+
+
+		//创建grid
+	var grid=Ext.create('Ext.grid.Panel',{
+
+		store:store,
+		columns:[
+			{text:"Name",dataIndex:'UserName'},
+			{text:"Sex",dataIndex:'Sex'},	
+			{text:"Age",dataIndex:'Age'}
+		],
+		height:400,
+		width:480,
+		x:20,
+		y:40,
+		title:'demo',
+		renderTo:'demo',
+		viewConfig:{
+			stripRows:true
+		}
+	});
+
+
+
+
+
+
+
+
+
+	});
+
+
+	
+
+	
+
+	</script>
+
+
+
+</head>
+<body>
+  
+<div id="demo"></div>
+
+</body>
+
+</html>

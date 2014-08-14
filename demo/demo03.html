@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>demo</title>
+
+
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+
+	<script type="text/javascript" src="../extjs/bootstrap.js" charset='utf-8' ></script>
+	<script type="text/javascript" charset='utf-8' >
+
+
+		//创建一个模型类
+		Ext.define('User',{
+			extend:'Ext.data.Model',
+			fields:[
+				{name:'id',type:'int'},
+				{name:'name',type:'string'}
+			]
+		});
+
+
+		var userStore;
+		Ext.require('Ext.data.Store');
+		Ext.onReady(function(){
+
+			//创建一个存储类，存储类主要是一些模型实例的集合
+			userStore=Ext.create('Ext.data.Store',{
+			model:'User',
+			proxy:{
+				type:'ajax',
+				url:'http://www.demo.com/demo/users.json',
+				reader:'json',//用来对服务器端响应数据进行解码，或从客户端读取数据。 它可以是一个Reader实例，一个配置对象或只是一个有效的Reader类型名称(例如 'json', 'xml')。
+				root:'users',
+				successProperty:'success',
+
+			// 	success:function(response){
+			// 		var options = Ext.decode(response.responseText);
+
+  	// console.log(options);
+			// 	}
+
+			},
+			autoLoad:true  //如果data属性未定义, 并且autoLoad值为'true'或对象, 则此store的load方法将在创建后自动执行. 如果autoLoad值是一个对象, 这个对象将 作为参数传递给load方法. 默认为'false'.
+		});
+
+		console.log(userStore);
+		console.log(userStore.count());
+		console.log(userStore.getAt(0));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		});
+
+	
+
+
+		
+
+			
+	</script>
+
+
+
+</head>
+<body>
+  
+
+
+</body>
+
+</html>

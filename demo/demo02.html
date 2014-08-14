@@ -37,16 +37,16 @@
 						}
 					},
 
-					// applyBottomBar:function(bottomBar){
-					// 	if (bottomBar&&bottomBar.enabled) {
-					// 		if (!this.bottomBar) {
-								
-					// 			return Ext.create('DEMO.Window.bottomBar',bottomBar);
-					// 		}else{
-					// 			this.bottomBar.setConfig(bottomBar);
-					// 		}
-					// 	}
-					// }
+				// 	applyBottomBar:function(bottomBar){
+				// 		if (bottomBar&&bottomBar.enabled) {
+				// 			if (!this.bottomBar) {
+
+				// 				// return Ext.create('DEMO.Window.bottomBar',bottomBar);
+				// 			}else{
+				// 				this.bottomBar.setConfig(bottomBar);
+				// 			}
+				// 		}
+				// 	}
 				});
 
 
@@ -58,6 +58,13 @@
 				});
 
 				alert(demoWindow.getTitle());
+				demoWindow.setTitle('Something New');
+
+				alert(demoWindow.getTitle()); 
+
+				demoWindow.setTitle(null);
+
+				demoWindow.setBottomBar({ height: 100 }); 
 
 
 

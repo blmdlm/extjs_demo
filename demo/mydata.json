@@ -1,0 +1,20 @@
+{
+	"mydatas":[
+	{
+		"UserName":"hehe",
+		"Sex":"M",
+		"Age":"18"
+	},
+	{
+		"UserName":"he",
+		"Sex":"M",
+		"Age":"18"
+	},
+	{
+		"UserName":"1he",
+		"Sex":"M",
+		"Age":"18"
+	}
+
+	]
+}
