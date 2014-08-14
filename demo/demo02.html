@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>demo</title>
+
+
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+
+	<script type="text/javascript" src="../extjs/bootstrap.js" charset='utf-8' ></script>
+	<script type="text/javascript" charset='utf-8' >
+
+		Ext.application({
+
+			name:'DEMO',
+			launch:function(){
+				Ext.define('DEMO.Window',{
+					isWindow:true,  //为真时，在这类中定义一个对象作为一个实例化窗口或者其子类
+					config:{  //配置它们的选项列表默认值，自动产生存取方法
+						title:'Title Here',
+						bottomBar:{
+							enabled:true,
+							height:50,
+							resizable:false
+						}
+					},
+					constructor:function(config){
+						this.initConfig(config);
+						return this;
+					},
+
+					applyTitle:function(title){
+						if (!Ext.isString(title)||title.length===0) {
+							alert('Error:title is invalid');
+						}else{
+							return title;
+						}
+					},
+
+					// applyBottomBar:function(bottomBar){
+					// 	if (bottomBar&&bottomBar.enabled) {
+					// 		if (!this.bottomBar) {
+								
+					// 			return Ext.create('DEMO.Window.bottomBar',bottomBar);
+					// 		}else{
+					// 			this.bottomBar.setConfig(bottomBar);
+					// 		}
+					// 	}
+					// }
+				});
+
+
+				var demoWindow=Ext.create('DEMO.Window',{
+					title:'Hello World',
+					bottomBar:{
+						height:60
+					}
+				});
+
+				alert(demoWindow.getTitle());
+
+
+
+
+
+
+			}
+		});
+
+
+
+			
+	</script>
+
+
+
+</head>
+<body>
+  
+
+
+</body>
+
+</html>
